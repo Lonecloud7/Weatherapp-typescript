@@ -1,0 +1,172 @@
+$background: rgb(18, 43, 122);
+
+$darkbackground: rgb(14, 31, 88);
+
+$ligtbackground: rgb(140, 161, 231);
+
+$font-color: white;
+
+$pagefont: "Lato", sans-serif;
+
+* {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  margin: 0%;
+  width: 100%;
+  line-height: 1.6;
+  background-color: $background;
+  font-family: "Lato", sans-serif;
+  // background-image: url(./forest.jpg);
+  // background-position: center;
+  // background-size: cover;
+}
+
+.container {
+  padding: 20px 80px;
+  margin: 0px auto;
+  height: 100vh;
+  overflow: auto;
+  color: $font-color;
+
+  .offline-prompt {
+    text-align: center;
+  }
+
+  .time {
+    // font-size: 40px;
+    font-style: normal;
+
+    h1 {
+      margin: 20px 0px;
+    }
+    h3 {
+      margin: 20px 0px;
+    }
+  }
+
+  .empty-input{
+    text-align: center;
+  }
+
+  .input {
+    display: flex;
+    justify-content: center;
+    // background-color: $darkbackground;
+    margin-bottom: 50px;
+
+    input {
+      width: 65%;
+      font-size: 30px;
+      padding: 10px;
+
+      text-align: center;
+      text-transform: uppercase;
+      background-color: $darkbackground;
+      border: none;
+      border-bottom: 3px solid $ligtbackground;
+      color: $ligtbackground;
+      font-family: $pagefont;
+    }
+
+    ::placeholder {
+      color: $ligtbackground;
+      opacity: 0.6;
+      font-family: $pagefont;
+      // font-size: 60px;
+    }
+
+    button {
+      // background-color: $darkbackground;
+      text-decoration: solid;
+      color: $ligtbackground;
+      border: none;
+      border-bottom: 3px solid $ligtbackground;
+      padding: 10px;
+      font-family: $pagefont;
+      font-size: 30px;
+      width: 15%;
+      height: initial;
+    }
+
+    button:hover {
+      background-color: $ligtbackground;
+      color: white;
+    }
+
+    button:active {
+      background-color: white;
+      color: $ligtbackground;
+    }
+  }
+
+  .city-display {
+    display: grid;
+    grid-gap: 32px 20px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+$fontsize: 50px;
+
+.top-display {
+  display: flex;
+  justify-content: center;
+  padding: 0px 0px 0px 40px;
+
+  // .temp{
+  //     margin-right: 60px;
+  //     // font-size: $fontsize;
+  // }
+
+  .location {
+    display: inline;
+    margin: 0px;
+    // font-size: $fontsize;
+
+    h2 {
+      margin: 0%;
+    }
+  }
+}
+
+//  DISPLAY GRID!!!
+
+.bottom-display {
+  display: inline;
+
+  ul {
+    list-style: none;
+    margin: 0%;
+    padding: 10px;
+  }
+  p {
+    margin-bottom: 0px;
+    // font-size: $fontsize;
+  }
+}
+
+.city-card {
+  background-color: $darkbackground;
+  width: 15em;
+  margin: 10px 15px;
+
+  .deletebtn {
+    font-size: 25px;
+    text-align: center;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: $ligtbackground;
+    }
+  }
+}
