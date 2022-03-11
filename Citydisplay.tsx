@@ -1,11 +1,34 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-const CityCard = (props) => {
+interface Main {
+  temp:number;
+  feels_like:number;
+  humidity:number;
+}
+
+interface props{
+  id: number;
+  key:number;
+  main: Main;
+  humididty:number;
+  feelsLike:number;
+  windSpeed:number;
+  wind:{speed:number};
+  temp:number;
+  convert: (kel: number) => number;
+  name:string;
+  cloud:string;
+  img:string;
+  deleteCity:(id: number) => void;
+
+}
+
+const CityCard: React.FC<props> = (props) => {
 
     //CONVERT KEL TO FAR
 
-  const convert = (kel) => {
+  const convert = (kel: number) => {
     return Math.round(((kel - 273.15) * 9) / 5 + 32);
   };
   return (
