@@ -1,0 +1,30 @@
+$background: rgb(18, 43, 122);
+
+$darkbackground: rgb(14, 31, 88);
+
+$ligtbackground: rgb(140, 161, 231);
+
+$font-color: white;
+
+$pagefont: "Lato", sans-serif;
+
+$fontsize: 50px;
+
+* {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+    margin: 0%;
+    width: 100%;
+    line-height: 1.6;
+    background-color: $background;
+    font-family: "Lato", sans-serif;
+    // background-image: url(./forest.jpg);
+    // background-position: center;
+    // background-size: cover;
+  }

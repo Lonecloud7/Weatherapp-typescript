@@ -136,6 +136,10 @@ body {
   margin: 0px;
 }
 
+.top-display .location ul li {
+  list-style: none;
+}
+
 .top-display .location h2 {
   margin: 0%;
 }
