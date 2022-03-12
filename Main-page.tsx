@@ -1,8 +1,9 @@
-import React from "react";
+import React,{ReactNode} from "react";
 import { useState, useEffect } from "react";
 import Time from "./Time";
 import "./weatherapp.css";
 import CityCard from "./Citydisplay";
+import Input from "./Input"
 
 interface Main {
   temp:number;
@@ -34,10 +35,18 @@ const WeatherApp: React.FC = () => {
 
       const [offline, setOffline] = useState(false);
 
+
+
+      const getValue:any = (e:{ children?: ReactNode; } | any) => {
+        setLocation(e.target.value)
+      }
+
+
+      
+
       //   ASYNC FETCH REQUEST
 
-        
-      const getWeather = async (e: any) => {
+      const getWeather:any = async (e:{ children?: ReactNode; } | any) => {
         e.preventDefault();
         // FETCH CONDITIONS
         let weatherApi:any;
@@ -123,32 +132,17 @@ const WeatherApp: React.FC = () => {
 
           {/* INPUT HERE */}
 
-          <form onSubmit={getWeather}>
 
-            <div className="empty-input">{error && <h2>FILL IN PLACE</h2>}</div>
+        <Input
+        getWeather={getWeather}
+        getValue={getValue}
+        offline={offline}
+        notFound={notFound}
+        location={location}
+        error={error}
+
+        />
           
-            <div className="input">
-              <input
-                type="text"
-                placeholder="ENTER A CITY"
-                onChange={(e) => setLocation(e.target.value)}
-                value={location}
-              />
-
-              <button className="button">
-                <i className="fa fa-search"></i>
-              </button>
-            </div>
-          </form>
-
-          {/* OFFLINE ALERT HERE */}
-          <div className="offline-prompt">
-            <h1 style={{ display: offline ? "block" : "none" }}>YOU ARE OFFLINE</h1>
-          </div>
-
-          <div className="offline-prompt">
-            <h1 style={{ display: notFound ? "block" : "none" }}>CITY NOT FOUND</h1>
-          </div>
 
           {/* ARRAY LOOP HERE */}
           <div className="city-display">

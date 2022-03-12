@@ -1,10 +1,12 @@
 import React from "react";
 import { useState } from "react";
 
-const Time = () => {
+
+
+const Time: React.FC = () => {
   const timeNow = new Date().toLocaleTimeString();
 
-  const [time, setTime] = useState(timeNow);
+  const [time, setTime] = useState<number | string>(timeNow);
 
   const getTime = () => {
     var newTime = new Date().toLocaleTimeString();
