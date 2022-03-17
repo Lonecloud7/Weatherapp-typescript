@@ -43,6 +43,7 @@ const WeatherApp: React.FC = () => {
       const [drop, setDrop] = useState(false);
 
       const [value, setValue] = useState(null)
+      
 
 
 
@@ -52,11 +53,7 @@ const WeatherApp: React.FC = () => {
           
       }
 
-      const closeDrop = () => {
-        setDrop(prev => {
-          return !prev
-        })
-      }
+      
 
       // const getJson = async() => {
       //   const res = await fetch("./countries.json", {headers : { 
@@ -169,7 +166,7 @@ const WeatherApp: React.FC = () => {
         drop={drop}
         value={value}
         onChange={(val) => {setValue(val)}}
-        closeDrop={closeDrop}
+        closeDrop={setDrop}
         />
         
           
