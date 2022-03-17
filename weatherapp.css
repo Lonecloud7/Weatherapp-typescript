@@ -11,8 +11,14 @@ body {
   margin: 0%;
   width: 100%;
   line-height: 1.6;
-  background-color: #122b7a;
+  background-color: #1f4ad3;
   font-family: "Lato", sans-serif;
+}
+
+body ::after {
+  background-image: url(./forest.jpg);
+  background-position: center;
+  background-size: cover;
 }
 
 .container {
@@ -113,12 +119,24 @@ body {
   color: #8ca1e7;
 }
 
+.container .dropdown {
+  width: 20%;
+  height: 15em;
+  border: 3px solid white;
+  background-color: #0e1f58;
+  overflow: auto;
+}
+
+.container .dropdown p:hover {
+  background-color: #8ca1e7;
+}
+
 .container .city-display {
   display: -ms-grid;
   display: grid;
-  grid-gap: 32px 20px;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px 20px;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
 }
 
 .top-display {
@@ -176,5 +194,15 @@ body {
 
 .city-card .deletebtn a:hover {
   color: #8ca1e7;
+}
+
+@media (min-width: 100px) {
+  .city-display {
+    display: -ms-grid;
+    display: grid;
+    grid-gap: 32px 20px;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
 }
 /*# sourceMappingURL=weatherapp.css.map */

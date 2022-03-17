@@ -1,0 +1,9 @@
+@media (min-width: 100px){
+    .city-display {
+        display: grid;
+        grid-gap: 32px 20px;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      $background: black;
+}

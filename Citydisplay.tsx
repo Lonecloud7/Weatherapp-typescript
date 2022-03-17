@@ -11,7 +11,7 @@ interface props{
   id: number;
   key:number;
   main: Main;
-  humididty:number;
+  humidity:number;
   feelsLike:number;
   windSpeed:number;
   wind:{speed:number};
@@ -59,7 +59,7 @@ const CityCard: React.FC<props> = (props) => {
       {props.main && (
         <div className="bottom-display">
           <ul>
-            <li>HUMIDITY:{props.humididty}</li>
+            <li>HUMIDITY:{props.humidity}</li>
             <li>FEELS LIKE:{convert(props.feelsLike)}°F</li>
             <li>WIND SPEED:{props.windSpeed}mph</li>
           </ul>

@@ -4,6 +4,7 @@ import Time from "./Time";
 import "./weatherapp.css";
 import CityCard from "./Citydisplay";
 import Input from "./Input"
+// import {countries} from "./countries"
 
 interface Main {
   temp:number;
@@ -31,20 +32,44 @@ const WeatherApp: React.FC = () => {
 
       const [notFound, setNotFound] = useState(false);
 
+      const [city, setCity] = useState("")
+
       //OFFLINE CHECKER
 
-      const [offline, setOffline] = useState(false);
+      const [offline, setOffline] = useState(false); 
+
+      //Dropdown
+
+      const [drop, setDrop] = useState(false);
+
+      const [value, setValue] = useState(null)
 
 
 
       const getValue:any = (e:{ children?: ReactNode; } | any) => {
         setLocation(e.target.value)
+        setDrop(true)
+          
       }
 
+      const closeDrop = () => {
+        setDrop(prev => {
+          return !prev
+        })
+      }
 
+      // const getJson = async() => {
+      //   const res = await fetch("./countries.json", {headers : { 
+      //     'Content-Type': 'application/json',
+      //     'Accept': 'application/json'
+      //    }});
+      //   const json = await res.json();
+      //   console.log(json);
+        
+      // }
       
 
-      //   ASYNC FETCH REQUEST
+      //   ASYNC FETCH REQUEST 
 
       const getWeather:any = async (e:{ children?: ReactNode; } | any) => {
         e.preventDefault();
@@ -57,6 +82,7 @@ const WeatherApp: React.FC = () => {
             weatherApi = weather;
             
             const {cod}: {cod:string | number} = weatherApi;
+
 
             cod !== "404" ? setApi((prev) => {
               return [...prev, weatherApi];
@@ -140,8 +166,12 @@ const WeatherApp: React.FC = () => {
         notFound={notFound}
         location={location}
         error={error}
-
+        drop={drop}
+        value={value}
+        onChange={(val) => {setValue(val)}}
+        closeDrop={closeDrop}
         />
+        
           
 
           {/* ARRAY LOOP HERE */}

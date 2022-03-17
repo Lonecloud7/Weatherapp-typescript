@@ -1,6 +1,8 @@
 import React from "react";
 import { ReactNode } from "react";
 import { useState, useEffect } from "react";
+import { DropDown } from "./dropdown";
+
 
 interface Props{
     offline:boolean;
@@ -9,11 +11,15 @@ interface Props{
     location:string;
     getWeather?:() => any;
     getValue?:() => any;
+    drop:Boolean
+    closeDrop:() => Boolean;
+    onChange:() => any;
 }
 
 const Input:React.FC <Props> = (props) => {
 
-
+    
+    
         
 
     return(
@@ -22,20 +28,28 @@ const Input:React.FC <Props> = (props) => {
 
                 <form onSubmit={props.getWeather}>
 
-                    <div className="empty-input">{props.error && <h2>FILL IN A PLACE</h2>}</div>
+                    <div className="empty-input">
+                        {props.error && <h2>FILL IN A PLACE</h2>}
+                    </div>
 
                         <div className="input">
-                        <input
-                            type="text"
-                            placeholder="ENTER A CITY"
-                            onChange={props.getValue}
-                            value={props.location}
-                        />
+                            <input
+                                type="text"
+                                placeholder="ENTER A CITY"
+                                onChange={props.getValue}
+                                value={props.location}
+                            />
 
-                        <button className="button">
-                            <i className="fa fa-search"></i>
-                        </button>
+                            <button className="button">
+                                <i className="fa fa-search"></i>
+                            </button>
                     </div>
+                    
+                    <DropDown 
+                    drop={props.drop}
+                    closeDrop={props.closeDrop}
+                    onChange={props.onChange}
+                    />
                 </form>
 
                 {/* OFFLINE ALERT HERE */}
