@@ -165,7 +165,7 @@ const WeatherApp: React.FC = () => {
         error={error}
         drop={drop}
         value={value}
-        onChange={(val) => {setValue(val)}}
+        onChange={(val:any) => {setValue(val)}}
         closeDrop={setDrop}
         />
         
@@ -183,7 +183,7 @@ const WeatherApp: React.FC = () => {
                   id={index}
                   key={index}
                   main={main}
-                  humididty={main && main.humidity}
+                  humidity={main && main.humidity}
                   feelsLike={main && main.feels_like}
                   windSpeed={wind && wind.speed}
                   wind={wind}

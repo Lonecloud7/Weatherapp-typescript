@@ -12,8 +12,9 @@ interface Props{
     getWeather?:() => any;
     getValue?:() => any;
     drop:Boolean
-    closeDrop:() => Boolean;
-    onChange:() => any;
+    closeDrop:any;
+    onChange:any;
+    value:null| string;
 }
 
 const Input:React.FC <Props> = (props) => {
