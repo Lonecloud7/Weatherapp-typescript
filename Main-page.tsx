@@ -1,162 +1,184 @@
-import React,{ReactNode} from "react";
-import { useState, useEffect } from "react";
+import React, { ReactNode } from "react";
+import { useState, useEffect, useRef } from "react";
 import Time from "./Time";
 import "./weatherapp.css";
 import CityCard from "./Citydisplay";
-import Input from "./Input"
+import Input from "./Input";
 // import {countries} from "./countries"
 
 interface Main {
-  temp:number;
-  feels_like:number;
-  humidity:number;
+  temp: number;
+  feels_like: number;
+  humidity: number;
 }
 
 interface Weather {
-  description:string;
-  icon:string;
+  description: string;
+  icon: string;
+}
+
+interface country {
+  code: string;
+  name: string;
+  geonameid: number;
+  subcountry: string;
+  country: string;
 }
 
 const WeatherApp: React.FC = () => {
-      // HOOKS!!!!!
+  // HOOKS!!!!!
 
-      const [location, setLocation] = useState("");
+  const [location, setLocation] = useState("");
 
-      const key = "e6a38152efe7fa62f20a103eeb622259";
+  const key = "e6a38152efe7fa62f20a103eeb622259";
 
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}`;
 
-      const [api, setApi] = useState([]);
+  const [api, setApi] = useState([]);
 
-      const [error, setError] = useState(false);
+  const [error, setError] = useState(false);
 
-      const [notFound, setNotFound] = useState(false);
+  const [notFound, setNotFound] = useState(false);
 
-      const [city, setCity] = useState("")
+  const [city, setCity] = useState("");
 
-      //OFFLINE CHECKER
+  //OFFLINE CHECKER
 
-      const [offline, setOffline] = useState(false); 
+  const [offline, setOffline] = useState(false);
 
-      //Dropdown
+  //Dropdown
 
-      const [drop, setDrop] = useState(false);
+  const [drop, setDrop] = useState(false);
 
-      const [value, setValue] = useState(null)
-      
+  //Dropdown REF
+  const ref = useRef(null);
 
+  const [value, setValue] = useState(null);
 
+  const getValue: any = (e: { children?: ReactNode } | any) => {
+    setLocation(e.target.value);
+    setDrop(true);
+    onChange(null)
+  };
+  const onChange = (option: country | any) => {
+    setValue(option.name);
+    console.log(option.name)
+  };
 
-      const getValue:any = (e:{ children?: ReactNode; } | any) => {
-        setLocation(e.target.value)
-        setDrop(true)
-          
-      }
+  // VALUES FROM INPUT CHANGE EVENT (ACTIVE TYPING)
+  
 
-      
+  // const getJson = async() => {
+  //   const res = await fetch("./countries.json", {headers : {
+  //     'Content-Type': 'application/json',
+  //     'Accept': 'application/json'
+  //    }});
+  //   const json = await res.json();
+  //   console.log(json);
 
-      // const getJson = async() => {
-      //   const res = await fetch("./countries.json", {headers : { 
-      //     'Content-Type': 'application/json',
-      //     'Accept': 'application/json'
-      //    }});
-      //   const json = await res.json();
-      //   console.log(json);
-        
-      // }
-      
+  // }
 
-      //   ASYNC FETCH REQUEST 
+  //   ASYNC FETCH REQUEST
 
-      const getWeather:any = async (e:{ children?: ReactNode; } | any) => {
-        e.preventDefault();
-        // FETCH CONDITIONS
-        let weatherApi:any;
+  const getWeather: any = async (e: { children?: ReactNode } | any) => {
+    e.preventDefault();
+    // FETCH CONDITIONS
+    let weatherApi: any;
 
-        if (offline == false && location !== "") {
-            const res = await fetch(url);
-            const weather = await res.json();
-            weatherApi = weather;
-            
-            const {cod}: {cod:string | number} = weatherApi;
+    if (offline == false && location !== "") {
+      const res = await fetch(url);
+      const weather = await res.json();
+      weatherApi = weather;
 
+      const { cod }: { cod: string | number } = weatherApi;
 
-            cod !== "404" ? setApi((prev) => {
-              return [...prev, weatherApi];
-            }) 
-            : setNotFound(true);
+      cod !== "404"
+        ? setApi((prev) => {
+            return [...prev, weatherApi];
+          })
+        : setNotFound(true);
 
-            setOffline(false);
-        }
+      setOffline(false);
+    }
 
-        // INPUT CONDITION
+    // INPUT CONDITION
 
-        if (location === "") {
-          setError(true);
-        }
+    if (location === "") {
+      setError(true);
+    }
 
-        //REMOVE INPUT PROMPT
-        setTimeout(() => {
-          setNotFound(false);
-        }, 3000);
+    //REMOVE INPUT PROMPT
+    setTimeout(() => {
+      setNotFound(false);
+    }, 3000);
 
-        setTimeout(() => {
-          setError(false);
-        }, 3000);
+    setTimeout(() => {
+      setError(false);
+    }, 3000);
 
-        setLocation("");
-      };
+    setLocation("");
+  };
 
-      //DELETE CITY CARD!!!
+  //DELETE CITY CARD!!!
 
-      const deleteCity = (id: number) => {
-        setApi((preValues) => {
-          return preValues.filter((value, index) => {
-            return index !== id;
-          });
-        });
-      };
+  const deleteCity = (id: number) => {
+    setApi((preValues) => {
+      return preValues.filter((value, index) => {
+        return index !== id;
+      });
+    });
+  };
 
-      
+  //OFFLINE CHECKER EFFECT!!
 
-      //OFFLINE CHECKER EFFECT!!
+  useEffect(() => {
+    window.addEventListener("offline", () => {
+      setOffline(true);
+    });
+    window.addEventListener("online", () => {
+      setOffline(false);
+    });
 
-      useEffect(() => {
-        window.addEventListener("offline", () => {
-          setOffline(true);
-        });
-        window.addEventListener("online", () => {
-          setOffline(false);
-        });
+    return () => {
+      window.removeEventListener("offline", () => {
+        setOffline(false);
+      });
+      window.removeEventListener("online", () => {
+        setOffline(true);
+      });
+    };
+  }, []);
 
-        return () => {
-          window.addEventListener("offline", () => {
-            setOffline(false);
-          });
-          window.addEventListener("online", () => {
-            setOffline(true);
-          });
-        };
-      }, []);
+  useEffect(() => {
+    location == "" && setDrop(false);
+  }, [location]);
 
-      //CONVERT KEL TO FAR
+  useEffect(() => {
+    document.addEventListener("click", close);
+    return () => document.removeEventListener("click", close);
+  }, []);
 
-      const convert = (kel: number) => {
-        return Math.round(((kel - 273.15) * 9) / 5 + 32);
-      };
+  const close = (e: any) => {
+    setDrop(e && e.terget === ref.current);
+  };
 
-      // HTML BEGINS HERE!!
-      return (
-        <div className="container">
-          {/* TIME COMPONENT HERE */}
-          <div className="time">
-            <Time />
-          </div>
+  //CONVERT KEL TO FAR
 
-          {/* INPUT HERE */}
+  const convert = (kel: number) => {
+    return Math.round(((kel - 273.15) * 9) / 5 + 32);
+  };
 
+  // HTML BEGINS HERE!!
+  return (
+    <div className="container" ref={ref}>
+      {/* TIME COMPONENT HERE */}
+      <div className="time">
+        <Time />
+      </div>
 
-        <Input
+      {/* INPUT HERE */}
+
+      <Input
         getWeather={getWeather}
         getValue={getValue}
         offline={offline}
@@ -164,41 +186,48 @@ const WeatherApp: React.FC = () => {
         location={location}
         error={error}
         drop={drop}
+        setLocation={setLocation}
         value={value}
-        onChange={(val:any) => {setValue(val)}}
+        //TAKE IN SELECTED DROPDOWN OPTION TO LOCATION!!!
+        onChange={onChange}
         closeDrop={setDrop}
-        />
-        
-          
+      />
 
-          {/* ARRAY LOOP HERE */}
-          <div className="city-display">
-            {api.map((value, index) => {
-              const { main,wind,name,weather }:{name:string;
-                                                weather:[Weather];
-                                                main:Main;
-                                                wind:{speed:number};} = value;
-              return (
-                <CityCard
-                  id={index}
-                  key={index}
-                  main={main}
-                  humidity={main && main.humidity}
-                  feelsLike={main && main.feels_like}
-                  windSpeed={wind && wind.speed}
-                  wind={wind}
-                  convert={convert}
-                  temp={main && main.temp}
-                  name={name}
-                  cloud={weather && weather[0].description}
-                  img={weather && weather[0].icon}
-                  deleteCity={deleteCity}
-                />
-              );
-            })}
-          </div>
-        </div>
-      );
+      {/* ARRAY LOOP HERE */}
+      <div className="city-display">
+        {api.map((value, index) => {
+          const {
+            main,
+            wind,
+            name,
+            weather,
+          }: {
+            name: string;
+            weather: [Weather];
+            main: Main;
+            wind: { speed: number };
+          } = value;
+          return (
+            <CityCard
+              id={index}
+              key={index}
+              main={main}
+              humidity={main && main.humidity}
+              feelsLike={main && main.feels_like}
+              windSpeed={wind && wind.speed}
+              wind={wind}
+              convert={convert}
+              temp={main && main.temp}
+              name={name}
+              cloud={weather && weather[0].description}
+              img={weather && weather[0].icon}
+              deleteCity={deleteCity}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
 };
 
 export default WeatherApp;
