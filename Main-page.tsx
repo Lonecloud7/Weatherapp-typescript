@@ -58,12 +58,11 @@ const WeatherApp: React.FC = () => {
   const getValue: any = (e: { children?: ReactNode } | any) => {
     setLocation(e.target.value);
     setDrop(true);
-    onChange(null)
+    // onChange(null)
   };
-  const onChange = (option: country | any) => {
-    setValue(option.name);
-    console.log(option.name)
-  };
+  // const onChange = (option: country | any) => {
+  //   setValue(option.name);
+  // };
 
   // VALUES FROM INPUT CHANGE EVENT (ACTIVE TYPING)
   
@@ -189,7 +188,7 @@ const WeatherApp: React.FC = () => {
         setLocation={setLocation}
         value={value}
         //TAKE IN SELECTED DROPDOWN OPTION TO LOCATION!!!
-        onChange={onChange}
+        // onChange={onChange}
         closeDrop={setDrop}
       />
 

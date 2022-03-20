@@ -1,4 +1,5 @@
 export const countries = [
+    // {"error": "no city found"},
     { "name": "Afghanistan", "code": "AF" },
     { "name": "Åland Islands", "code": "AX" },
     { "name": "Albania", "code": "AL" },

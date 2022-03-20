@@ -13,18 +13,18 @@ interface Props {
   getValue?: () => any;
   drop: Boolean;
   closeDrop: any;
-  onChange: any;
-  value?: null | string;
+  // onChange: any;
+  // value?: null | string;
   refrence?: null | undefined | any;
 }
 
 const Input: React.FC<Props> = (props) => {
 
-    const displayValue = () => {
-        if(props.location.length > 0) return props.location
-        if (props.value) return props.value.name
-        return "";
-    }
+    // const displayValue = () => {
+    //     if(props.location.length > 0) return props.location
+    //     if (props.value) return props.value.name
+    //     return "";
+    // }
   return (
     <div>
       {/* INPUT HERE */}
@@ -39,7 +39,7 @@ const Input: React.FC<Props> = (props) => {
             type="text"
             placeholder="ENTER A CITY"
             onChange={props.getValue}
-            value={displayValue()}
+            value={props.location}
           />
 
           <button className="button">
@@ -50,7 +50,7 @@ const Input: React.FC<Props> = (props) => {
         <DropDown
           drop={props.drop}
           closeDrop={props.closeDrop}
-          onChange={props.onChange}
+          // onChange={props.onChange}
           location={props.location}
           setLocation={props.setLocation}
         />

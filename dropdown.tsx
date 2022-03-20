@@ -19,24 +19,24 @@ interface country {
 export const DropDown: React.FC<Props | any> = ({
   drop,
   closeDrop,
-  onChange,
+  // onChange,
   location,
   setLocation,
+  getWeather,
 }) => {
   const [query, setQuery] = useState("miami");
 
   const Filter = (search) => {
     return search.filter((option) => {
-      const { name } = option;
-      const check = name.toLowerCase().indexOf(query.toLowerCase()) > -1;
-      console.log(check)
+      const {name} = option
+      return name.toLowerCase().indexOf(location.toLowerCase()) > -1;
     });
   };
 
   return (
     <div>
       <div className="dropdown" style={{ display: drop ? "block" : "none" }}>
-        {Filter(countries).map((option: any | country) => {
+        {Filter(countries).slice(0, 10).map((option: any | country) => {
           const {
             name,
             code,
@@ -55,9 +55,9 @@ export const DropDown: React.FC<Props | any> = ({
             <p
               key={code || geonameid}
               onClick={() => {
-                onChange(option);
+                // onChange(option.name);
                 closeDrop(false);
-                setLocation("")
+                setLocation(option.name)
               }}
             >
               {name}
