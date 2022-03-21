@@ -65,7 +65,6 @@ const WeatherApp: React.FC = () => {
   // };
 
   // VALUES FROM INPUT CHANGE EVENT (ACTIVE TYPING)
-  
 
   // const getJson = async() => {
   //   const res = await fetch("./countries.json", {headers : {
@@ -116,8 +115,6 @@ const WeatherApp: React.FC = () => {
     setTimeout(() => {
       setError(false);
     }, 3000);
-
-    
   };
 
   //DELETE CITY CARD!!!
@@ -191,7 +188,6 @@ const WeatherApp: React.FC = () => {
         // value={value}
         //TAKE IN SELECTED DROPDOWN OPTION TO LOCATION!!!
         setApi={setApi}
-        offline={offline}
         // onChange={onChange}
         closeDrop={setDrop}
       />

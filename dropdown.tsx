@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { countries } from "./countries";
 
 interface Props {
@@ -26,13 +26,13 @@ export const DropDown: React.FC<Props | any> = ({
   setApi,
   offline,
 }) => {
-  const [query, setQuery] = useState(undefined);
+  // const [query, setQuery] = useState(undefined);
 
   const [value, setValue] = useState("");
 
   const key = "e6a38152efe7fa62f20a103eeb622259";
 
-  const Filter = (search) => {
+  const Filter = (search:any[]) => {
     return search.filter((option) => {
       const { name } = option;
       return name.toLowerCase().indexOf(location.toLowerCase()) > -1;
@@ -40,7 +40,6 @@ export const DropDown: React.FC<Props | any> = ({
   };
 
   const getOption: any = async (e: { children?: ReactNode } | any) => {
-
     // FETCH CONDITIONS
 
     if (offline == false && value !== "") {
@@ -58,8 +57,8 @@ export const DropDown: React.FC<Props | any> = ({
   };
 
   useEffect(() => {
-    getOption()
-  },[value])
+    getOption();
+  }, [value]);
 
   return (
     <div>
@@ -82,8 +81,12 @@ export const DropDown: React.FC<Props | any> = ({
             } = option;
 
             return (
-              <p key={code || geonameid} 
-                onClick={() => {setValue(option.name)}}>
+              <p
+                key={code || geonameid}
+                onClick={() => {
+                  setValue(option.name);
+                }}
+              >
                 {name}
               </p>
             );

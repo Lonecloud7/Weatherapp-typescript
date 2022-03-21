@@ -1,4 +1,3 @@
-
 import React from "react";
 import { ReactNode } from "react";
 import { useState, useEffect } from "react";
@@ -15,16 +14,16 @@ interface Props {
   closeDrop: any;
   // onChange: any;
   // value?: null | string;
-  refrence?: null | undefined | any;
+  setLocation:React.Dispatch<React.SetStateAction<string>>
+  setApi:React.Dispatch<React.SetStateAction<never[]>>
 }
 
 const Input: React.FC<Props> = (props) => {
-
-    // const displayValue = () => {
-    //     if(props.location.length > 0) return props.location
-    //     if (props.value) return props.value.name
-    //     return "";
-    // }
+  // const displayValue = () => {
+  //     if(props.location.length > 0) return props.location
+  //     if (props.value) return props.value.name
+  //     return "";
+  // }
   return (
     <div>
       {/* INPUT HERE */}
