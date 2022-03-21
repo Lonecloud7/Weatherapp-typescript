@@ -53,6 +53,8 @@ const Input: React.FC<Props> = (props) => {
           // onChange={props.onChange}
           location={props.location}
           setLocation={props.setLocation}
+          setApi={props.setApi}
+          offline={props.offline}
         />
       </form>
 

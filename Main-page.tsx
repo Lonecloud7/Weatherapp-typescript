@@ -40,7 +40,7 @@ const WeatherApp: React.FC = () => {
 
   const [notFound, setNotFound] = useState(false);
 
-  const [city, setCity] = useState("");
+  // const [city, setCity] = useState("");
 
   //OFFLINE CHECKER
 
@@ -53,7 +53,7 @@ const WeatherApp: React.FC = () => {
   //Dropdown REF
   const ref = useRef(null);
 
-  const [value, setValue] = useState(null);
+  // const [value, setValue] = useState(null);
 
   const getValue: any = (e: { children?: ReactNode } | any) => {
     setLocation(e.target.value);
@@ -98,6 +98,8 @@ const WeatherApp: React.FC = () => {
         : setNotFound(true);
 
       setOffline(false);
+
+      setLocation("");
     }
 
     // INPUT CONDITION
@@ -115,7 +117,7 @@ const WeatherApp: React.FC = () => {
       setError(false);
     }, 3000);
 
-    setLocation("");
+    
   };
 
   //DELETE CITY CARD!!!
@@ -186,8 +188,10 @@ const WeatherApp: React.FC = () => {
         error={error}
         drop={drop}
         setLocation={setLocation}
-        value={value}
+        // value={value}
         //TAKE IN SELECTED DROPDOWN OPTION TO LOCATION!!!
+        setApi={setApi}
+        offline={offline}
         // onChange={onChange}
         closeDrop={setDrop}
       />
