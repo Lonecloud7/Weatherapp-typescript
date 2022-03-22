@@ -1,6 +1,4 @@
 import React from "react";
-import { ReactNode } from "react";
-import { useState, useEffect } from "react";
 import { DropDown } from "./dropdown";
 
 interface Props {
@@ -41,7 +39,7 @@ const Input: React.FC<Props> = (props) => {
             value={props.location}
           />
 
-          <button className="button">
+          <button className="button" type="submit">
             <i className="fa fa-search"></i>
           </button>
         </div>

@@ -39,7 +39,7 @@ export const DropDown: React.FC<Props | any> = ({
     });
   };
 
-  const getOption: any = async (e: { children?: ReactNode } | any) => {
+  const getOption: any = async (e: { children?: ReactNode }) => {
     // FETCH CONDITIONS
 
     if (offline == false && value !== "") {
@@ -48,7 +48,7 @@ export const DropDown: React.FC<Props | any> = ({
       );
       const weather = await res.json();
 
-      setApi((prev) => {
+      setApi((prev:any) => {
         return [...prev, weather];
       });
       setLocation("");
@@ -81,14 +81,19 @@ export const DropDown: React.FC<Props | any> = ({
             } = option;
 
             return (
-              <p
-                key={code || geonameid}
-                onClick={() => {
-                  setValue(option.name);
-                }}
-              >
-                {name}
-              </p>
+                <a href="#">
+                      <p
+                      key={code || geonameid}
+                      onClick={() => {
+                        setValue(option.name);
+                      }}
+                    >
+                      {name}
+                    </p>
+                </a>
+                
+
+              
             );
           })}
       </div>

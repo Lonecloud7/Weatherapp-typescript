@@ -91,7 +91,7 @@ const WeatherApp: React.FC = () => {
       const { cod }: { cod: string | number } = weatherApi;
 
       cod !== "404"
-        ? setApi((prev) => {
+        ? setApi((prev:any) => {
             return [...prev, weatherApi];
           })
         : setNotFound(true);

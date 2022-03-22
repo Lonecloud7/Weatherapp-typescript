@@ -34,7 +34,7 @@
     display: flex;
     justify-content: center;
     // background-color: $darkbackground;
-    margin-bottom: 50px;
+    margin-bottom: 2px;
 
     input {
       width: 65%;
@@ -80,13 +80,21 @@
       color: $ligtbackground;
     }
   }
-
+  
   .dropdown{
-    width: 20%;
+    width: 65%;
     height: 15em;
     border: 3px solid white;
     background-color: $darkbackground;
     overflow:auto;
+    display: flex;
+    justify-content: center;
+    padding-left: 20px;
+    margin-left: 112px;
+     a{
+       text-decoration: none;
+       color: $font-color;
+     }
       p:hover{
         background-color: $ligtbackground;
       }
