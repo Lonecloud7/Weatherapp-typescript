@@ -157,7 +157,7 @@ const WeatherApp: React.FC = () => {
   }, []);
 
   const close = (e: any) => {
-    setDrop(e && e.terget === ref.current);
+    setDrop(e && e.target === ref.current);
   };
 
   //CONVERT KEL TO FAR
