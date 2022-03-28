@@ -50,6 +50,7 @@ const WeatherApp: React.FC = () => {
 
   const [drop, setDrop] = useState(false);
 
+
   //Dropdown REF
   const ref = useRef(null);
 
@@ -88,13 +89,14 @@ const WeatherApp: React.FC = () => {
       const weather = await res.json();
       weatherApi = weather;
 
-      const { cod }: { cod: string | number } = weatherApi;
+      const { cod, name }: { cod: string | number, name:string } = weatherApi;
 
       cod !== "404"
         ? setApi((prev:any) => {
             return [...prev, weatherApi];
           })
         : setNotFound(true);
+      
 
       setOffline(false);
 

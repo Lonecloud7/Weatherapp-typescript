@@ -37,6 +37,9 @@ const Input: React.FC<Props> = (props) => {
             placeholder="ENTER A CITY"
             onChange={props.getValue}
             value={props.location}
+            // onFocus={() => {
+            //   props.setHistory(true);
+            // }}
           />
 
           <button className="button" type="submit">
@@ -52,6 +55,7 @@ const Input: React.FC<Props> = (props) => {
           setLocation={props.setLocation}
           setApi={props.setApi}
           offline={props.offline}
+          
         />
       </form>
 

@@ -25,6 +25,7 @@ export const DropDown: React.FC<Props | any> = ({
   // getWeather,
   setApi,
   offline,
+  setHistory,
 }) => {
   // const [query, setQuery] = useState(undefined);
 
@@ -51,6 +52,7 @@ export const DropDown: React.FC<Props | any> = ({
       setApi((prev:any) => {
         return [...prev, weather];
       });
+
       setLocation("");
       closeDrop(false);
     }
@@ -85,7 +87,7 @@ export const DropDown: React.FC<Props | any> = ({
                       <p
                       key={code || geonameid}
                       onClick={() => {
-                        setValue(option.name);
+                        setValue(name);
                       }}
                     >
                       {name}
