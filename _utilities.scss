@@ -1,8 +1,6 @@
-@import 'mobile';
+@import "mobile";
 
 $background: rgb(18, 43, 122);
-
-
 
 $ligtbackground: rgb(140, 161, 231);
 
@@ -21,15 +19,15 @@ $fontsize: 50px;
 }
 
 body {
-    margin: 0%;
-    width: 100%;
-    line-height: 1.6;
-    // background-color: lighten($darkbackground, 20%);
-    font-family: "Lato", sans-serif;
-    ::after{
-      background-image: url(./forest.jpg);
-      background-position: center;
-      background-size: cover;
-    }
-    
+  margin: 0%;
+  width: 100%;
+
+  line-height: 1.6;
+  // background-color: lighten($darkbackground, 20%);
+  font-family: "Lato", sans-serif;
+  ::after {
+    background-image: url(./forest.jpg);
+    background-position: center;
+    background-size: cover;
   }
+}
