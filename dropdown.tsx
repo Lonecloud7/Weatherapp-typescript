@@ -25,7 +25,7 @@ export const DropDown: React.FC<Props | any> = ({
   // getWeather,
   setApi,
   offline,
-  setHistory,
+  ref
 }) => {
   // const [query, setQuery] = useState(undefined);
 
@@ -33,7 +33,7 @@ export const DropDown: React.FC<Props | any> = ({
 
   const key = "e6a38152efe7fa62f20a103eeb622259";
 
-  const Filter = (search:any[]) => {
+  const Filter = (search: any[]) => {
     return search.filter((option) => {
       const { name } = option;
       return name.toLowerCase().indexOf(location.toLowerCase()) > -1;
@@ -49,7 +49,7 @@ export const DropDown: React.FC<Props | any> = ({
       );
       const weather = await res.json();
 
-      setApi((prev:any) => {
+      setApi((prev: any) => {
         return [...prev, weather];
       });
 
@@ -64,7 +64,7 @@ export const DropDown: React.FC<Props | any> = ({
 
   return (
     <div>
-      <div className="dropdown" style={{ display: drop ? "block" : "none" }}>
+      <div className="dropdown" style={{ display: drop ? "block" : "none" }} ref={ref}>
         {Filter(countries)
           .slice(0, 10)
           .map((option: any | country) => {
@@ -83,19 +83,16 @@ export const DropDown: React.FC<Props | any> = ({
             } = option;
 
             return (
-                <a href="#">
-                      <p
-                      key={code || geonameid}
-                      onClick={() => {
-                        setValue(name);
-                      }}
-                    >
-                      {name}
-                    </p>
-                </a>
-                
-
-              
+              <a href="#">
+                <p
+                  key={code || geonameid}
+                  onClick={() => {
+                    setValue(name);
+                  }}
+                >
+                  {name}
+                </p>
+              </a>
             );
           })}
       </div>

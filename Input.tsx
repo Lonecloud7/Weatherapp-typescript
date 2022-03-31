@@ -12,8 +12,9 @@ interface Props {
   closeDrop: any;
   // onChange: any;
   // value?: null | string;
-  setLocation:React.Dispatch<React.SetStateAction<string>>
-  setApi:React.Dispatch<React.SetStateAction<never[]>>
+  setLocation: React.Dispatch<React.SetStateAction<string>>;
+  setApi: React.Dispatch<React.SetStateAction<never[]>>;
+  ref:React.MutableRefObject<null>
 }
 
 const Input: React.FC<Props> = (props) => {
@@ -55,7 +56,7 @@ const Input: React.FC<Props> = (props) => {
           setLocation={props.setLocation}
           setApi={props.setApi}
           offline={props.offline}
-          
+          ref={props.ref}
         />
       </form>
 

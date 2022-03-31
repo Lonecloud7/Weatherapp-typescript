@@ -1,3 +1,17 @@
+@media all and (max-width: 767px) and (min-width: 481px) {
+  body {
+    background-color: coral;
+  }
+  .city-display {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+  }
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -11,7 +25,6 @@ body {
   margin: 0%;
   width: 100%;
   line-height: 1.6;
-  background-color: #1f4ad3;
   font-family: "Lato", sans-serif;
 }
 
@@ -19,6 +32,20 @@ body ::after {
   background-image: url(./forest.jpg);
   background-position: center;
   background-size: cover;
+}
+
+@media all and (max-width: 767px) and (min-width: 481px) {
+  body {
+    background-color: coral;
+  }
+  .city-display {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+  }
 }
 
 .container {
@@ -207,15 +234,5 @@ body ::after {
 
 .city-card .deletebtn a:hover {
   color: #8ca1e7;
-}
-
-@media (min-width: 100px) {
-  .city-display {
-    display: -ms-grid;
-    display: grid;
-    grid-gap: 32px 20px;
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
-  }
 }
 /*# sourceMappingURL=weatherapp.css.map */

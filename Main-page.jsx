@@ -50,7 +50,6 @@ const WeatherApp: React.FC = () => {
 
   const [drop, setDrop] = useState(false);
 
-
   //Dropdown REF
   const ref = useRef(null);
 
@@ -89,14 +88,13 @@ const WeatherApp: React.FC = () => {
       const weather = await res.json();
       weatherApi = weather;
 
-      const { cod, name }: { cod: string | number, name:string } = weatherApi;
+      const { cod, name }: { cod: string | number; name: string } = weatherApi;
 
       cod !== "404"
-        ? setApi((prev:any) => {
+        ? setApi((prev) => {
             return [...prev, weatherApi];
           })
         : setNotFound(true);
-      
 
       setOffline(false);
 
@@ -170,7 +168,7 @@ const WeatherApp: React.FC = () => {
 
   // HTML BEGINS HERE!!
   return (
-    <div className="container" ref={ref}>
+    <div className="container" >
       {/* TIME COMPONENT HERE */}
       <div className="time">
         <Time />
@@ -192,6 +190,7 @@ const WeatherApp: React.FC = () => {
         setApi={setApi}
         // onChange={onChange}
         closeDrop={setDrop}
+        ref={ref}
       />
 
       {/* ARRAY LOOP HERE */}

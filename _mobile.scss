@@ -1,9 +1,53 @@
-@media all and (min-width: 100px){
-    .city-display {
-        display: grid;
-        grid-gap: 32px 20px;
-        grid-template-columns: repeat(2, 1fr);
+$darkbackground: rgb(14, 31, 88);
+
+
+@media all and (max-width:767px) and (min-width:481px){
+      
+      body{
+            background-color: coral;
+      // background-color: rgb(31, 30, 30);
       }
 
-      $background: black;
+      .city-display {
+            display: flex;
+            justify-content: end;
+          }
+      
+
+}
+
+@media all and (min-width:768px){
+
+      body{
+            $background-color:red;
+      // background-color: rgb(31, 30, 30);
+      }
+      
+      // background-color: rgb(31, 30, 30);
+  
+  
+}
+
+@media all and (min-width:1024px) {
+
+body{
+      $background-color:green;
+      // background-color: rgb(31, 30, 30);
+      }
+     
+      // background-color: rgb(31, 30, 30);
+  
+  
+}
+
+@media all and (min-width:1200px) {
+body{
+      $background-color:purple;
+      // background-color: rgb(31, 30, 30);
+      }
+      
+      // background-color: rgb(31, 30, 30);
+  
+  
+  
 }
