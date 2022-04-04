@@ -50,6 +50,7 @@
       border-bottom: 3px solid $ligtbackground;
       color: $ligtbackground;
       font-family: $pagefont;
+      box-shadow: $boxShadow;
     }
 
     ::placeholder {
@@ -58,7 +59,7 @@
       font-family: $pagefont;
       // font-size: 60px;
     }
-
+ 
     button {
       // background-color: $darkbackground;
       text-decoration: solid;
@@ -70,6 +71,7 @@
       font-size: 30px;
       width: 15%;
       height: initial;
+      box-shadow: $boxShadow;
     }
 
     button:hover {

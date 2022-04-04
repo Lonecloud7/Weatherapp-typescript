@@ -6,12 +6,15 @@ $darkbackground: rgb(14, 31, 88);
       body{
             background-color: coral;
       // background-color: rgb(31, 30, 30);
+
+            .container .city-display{
+                  display: grid;
+                  grid-gap: 15px 20px;
+                  grid-template-columns: repeat(1, 1fr);
+            }
       }
 
-      .city-display {
-            display: flex;
-            justify-content: end;
-          }
+      
       
 
 }
@@ -19,7 +22,7 @@ $darkbackground: rgb(14, 31, 88);
 @media all and (min-width:768px){
 
       body{
-            $background-color:red;
+            background-color:red;
       // background-color: rgb(31, 30, 30);
       }
       
@@ -31,7 +34,7 @@ $darkbackground: rgb(14, 31, 88);
 @media all and (min-width:1024px) {
 
 body{
-      $background-color:green;
+      background-color:green;
       // background-color: rgb(31, 30, 30);
       }
      
@@ -42,7 +45,7 @@ body{
 
 @media all and (min-width:1200px) {
 body{
-      $background-color:purple;
+      background-color:purple;
       // background-color: rgb(31, 30, 30);
       }
       

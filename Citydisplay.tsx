@@ -24,9 +24,18 @@ interface props{
 
 }
 
-const CityCard: React.FC<props> = (props) => {
-
-    //CONVERT KEL TO FAR
+const CityCard: React.FC<props> = ({
+  main,
+  temp,
+  name,
+  img,
+  humidity,
+  id,
+  feelsLike,
+  windSpeed,
+  deleteCity,
+}) => {
+  //CONVERT KEL TO FAR
 
   const convert = (kel: number) => {
     return Math.round(((kel - 273.15) * 9) / 5 + 32);
@@ -34,19 +43,16 @@ const CityCard: React.FC<props> = (props) => {
   return (
     <div className="city-card">
       {/* TOP DISPLAY HERE */}
-      {props.main && (
+      {main && (
         <div className="top-display">
-          <div className="temp">
-            {props.main && <h2>{convert(props.temp)}°F</h2>}
-          </div>
+          <div className="temp">{main && <h2>{convert(temp)}°F</h2>}</div>
           <div className="location">
             <ul>
-              <h2>{props.name}</h2>
+              <h2>{name}</h2>
               <li>
-
-              {/* {DYNAMIC IMAGES FROM OPEN WEATHER} */}
+                {/* {DYNAMIC IMAGES FROM OPEN WEATHER} */}
                 <img
-                  src={`http://openweathermap.org/img/wn/${props.img}@2x.png`}
+                  src={`http://openweathermap.org/img/wn/${img}@2x.png`}
                   alt=""
                 />
               </li>
@@ -56,18 +62,18 @@ const CityCard: React.FC<props> = (props) => {
       )}
 
       {/* BOTTOM-DISPLAY HERE */}
-      {props.main && (
+      {main && (
         <div className="bottom-display">
           <ul>
-            <li>HUMIDITY:{props.humidity}</li>
-            <li>FEELS LIKE:{convert(props.feelsLike)}°F</li>
-            <li>WIND SPEED:{props.windSpeed}mph</li>
+            <li>HUMIDITY:{humidity}</li>
+            <li>FEELS LIKE:{convert(feelsLike)}°F</li>
+            <li>WIND SPEED:{windSpeed}mph</li>
           </ul>
         </div>
       )}
 
-        {/* DELETE CARD BOTTON */}
-      <div onClick={() => props.deleteCity(props.id)} className="deletebtn">
+      {/* DELETE CARD BOTTON */}
+      <div onClick={() => deleteCity(id)} className="deletebtn">
         <a href="#">&#215;</a>
       </div>
     </div>

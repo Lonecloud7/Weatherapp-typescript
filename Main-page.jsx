@@ -169,6 +169,8 @@ const WeatherApp: React.FC = () => {
   // HTML BEGINS HERE!!
   return (
     <div className="container" >
+
+        <h1 style={{textAlign:"center"}}>WEATHER <code>FORECAST</code> </h1>
       {/* TIME COMPONENT HERE */}
       <div className="time">
         <Time />
