@@ -53,6 +53,7 @@ const WeatherApp: React.FC = () => {
   //Dropdown REF
   const ref = useRef(null);
 
+
   // const [value, setValue] = useState(null);
 
   const getValue: any = (e: { children?: ReactNode } | any) => {
@@ -81,18 +82,18 @@ const WeatherApp: React.FC = () => {
   const getWeather: any = async (e: { children?: ReactNode } | any) => {
     e.preventDefault();
     // FETCH CONDITIONS
-    let weatherApi: any;
+    // let weatherApi: any;
 
     if (offline == false && location !== "") {
       const res = await fetch(url);
       const weather = await res.json();
-      weatherApi = weather;
+      // weatherApi = weather;
 
-      const { cod, name }: { cod: string | number; name: string } = weatherApi;
+      // const { cod, name }: { cod: string | number; name: string } = weatherApi;
 
-      cod !== "404"
+      (!weather || weather.cod !== "404")
         ? setApi((prev) => {
-            return [...prev, weatherApi];
+            return [...prev, weather];
           })
         : setNotFound(true);
 
@@ -103,9 +104,8 @@ const WeatherApp: React.FC = () => {
 
     // INPUT CONDITION
 
-    if (location === "") {
-      setError(true);
-    }
+    location === "" && setError(true);
+    
 
     //REMOVE INPUT PROMPT
     setTimeout(() => {
@@ -170,6 +170,8 @@ const WeatherApp: React.FC = () => {
   return (
     <div className="container" >
 
+    
+
         <h1 style={{textAlign:"center"}}>WEATHER <code>FORECAST</code> </h1>
       {/* TIME COMPONENT HERE */}
       <div className="time">
@@ -193,6 +195,7 @@ const WeatherApp: React.FC = () => {
         // onChange={onChange}
         closeDrop={setDrop}
         ref={ref}
+        setNotFound={setNotFound}
       />
 
       {/* ARRAY LOOP HERE */}

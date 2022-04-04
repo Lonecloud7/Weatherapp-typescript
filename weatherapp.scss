@@ -53,6 +53,10 @@
       box-shadow: $boxShadow;
     }
 
+    input:focus {
+      background-color: lighten( $darkbackground, 5%);
+    }
+
     ::placeholder {
       color: $ligtbackground;
       opacity: 0.6;

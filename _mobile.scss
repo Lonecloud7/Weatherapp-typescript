@@ -24,9 +24,15 @@ $darkbackground: rgb(14, 31, 88);
       body{
             background-color:red;
       // background-color: rgb(31, 30, 30);
+
+            .container .city-display{
+                  display: grid;
+                  grid-gap: 15px 20px;
+                  grid-template-columns: repeat(2, 1fr);
+            }
       }
       
-      // background-color: rgb(31, 30, 30);
+      
   
   
 }
@@ -36,6 +42,12 @@ $darkbackground: rgb(14, 31, 88);
 body{
       background-color:green;
       // background-color: rgb(31, 30, 30);
+
+      .container .city-display{
+            display: grid;
+            grid-gap: 15px 20px;
+            grid-template-columns: repeat(3, 1fr);
+      }
       }
      
       // background-color: rgb(31, 30, 30);
@@ -47,6 +59,11 @@ body{
 body{
       background-color:purple;
       // background-color: rgb(31, 30, 30);
+            .container .city-display{
+                  display: grid;
+                  grid-gap: 15px 20px;
+                  grid-template-columns: repeat(4, 1fr);
+            }
       }
       
       // background-color: rgb(31, 30, 30);

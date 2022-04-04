@@ -25,7 +25,8 @@ export const DropDown: React.FC<Props | any> = ({
   // getWeather,
   setApi,
   offline,
-  ref
+  ref,
+  setNotFound
 }) => {
   // const [query, setQuery] = useState(undefined);
 
@@ -49,12 +50,17 @@ export const DropDown: React.FC<Props | any> = ({
       );
       const weather = await res.json();
 
+      (!weather || weather.cod !== "404")?
       setApi((prev: any) => {
         return [...prev, weather];
-      });
-
+      }):setNotFound(true);
+      
       setLocation("");
       closeDrop(false);
+
+      setTimeout(() => {
+        setNotFound(false);
+      }, 3000);
     }
   };
 
@@ -83,9 +89,10 @@ export const DropDown: React.FC<Props | any> = ({
             } = option;
 
             return (
-              <a href="#">
+              <a href="#"
+              key={code || geonameid}>
                 <p
-                  key={code || geonameid}
+                  
                   onClick={() => {
                     setValue(name);
                   }}

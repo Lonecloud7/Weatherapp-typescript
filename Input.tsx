@@ -15,6 +15,7 @@ interface Props {
   setLocation: React.Dispatch<React.SetStateAction<string>>;
   setApi: React.Dispatch<React.SetStateAction<never[]>>;
   ref:React.MutableRefObject<null>
+  setNotFound:React.Dispatch<React.SetStateAction<Boolean>>
 }
 
 const Input: React.FC<Props> = (props) => {
@@ -57,6 +58,7 @@ const Input: React.FC<Props> = (props) => {
           setApi={props.setApi}
           offline={props.offline}
           ref={props.ref}
+          setNotFound={props.setNotFound}
         />
       </form>
 
