@@ -12,24 +12,4 @@ $fontsize: 50px;
 
 $boxShadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);
 
-* {
-  box-sizing: border-box;
-}
 
-*:focus {
-  outline: none;
-}
-
-body {
-  margin: 0%;
-  width: 100%;
-
-  line-height: 1.6;
-  // background-color: lighten($darkbackground, 20%);
-  font-family: "Lato", sans-serif;
-  ::after {
-    background-image: url(./forest.jpg);
-    background-position: center;
-    background-size: cover;
-  }
-}

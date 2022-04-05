@@ -50,28 +50,6 @@
   }
 }
 
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-*:focus {
-  outline: none;
-}
-
-body {
-  margin: 0%;
-  width: 100%;
-  line-height: 1.6;
-  font-family: "Lato", sans-serif;
-}
-
-body ::after {
-  background-image: url(./forest.jpg);
-  background-position: center;
-  background-size: cover;
-}
-
 @media all and (max-width: 767px) and (min-width: 481px) {
   body {
     background-color: coral;
@@ -302,7 +280,8 @@ body ::after {
 
 .city-card {
   background-color: #0e1f58;
-  width: 15em;
+  width: auto;
+  padding: 5px;
   margin: 10px 15px;
 }
 

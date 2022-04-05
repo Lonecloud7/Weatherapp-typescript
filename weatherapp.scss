@@ -42,7 +42,6 @@
       width: 65%;
       font-size: 30px;
       padding: 10px;
-
       text-align: center;
       text-transform: uppercase;
       background-color: $darkbackground;
@@ -162,7 +161,8 @@
 
 .city-card {
   background-color: $darkbackground;
-  width: 15em;
+  width: auto;
+  padding: 5px;
   margin: 10px 15px;
 
   .deletebtn {
