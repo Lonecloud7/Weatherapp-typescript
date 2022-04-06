@@ -72,7 +72,7 @@ export const DropDown: React.FC<Props | any> = ({
     <div>
       <div className="dropdown" style={{ display: drop ? "block" : "none" }} ref={ref}>
         {Filter(countries)
-          .slice(0, 10)
+          .slice(0, 5)
           .map((option: any | country) => {
             const {
               name,

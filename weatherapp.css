@@ -1,4 +1,4 @@
-@media all and (max-width: 767px) and (min-width: 481px) {
+@media all and (max-width: 767px) {
   body {
     background-color: coral;
   }
@@ -8,6 +8,22 @@
     grid-gap: 15px 20px;
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
+  }
+  .time h1 {
+    font-size: 20px;
+    margin: 0;
+  }
+  .time h3 {
+    font-size: 20px;
+    margin: 0;
+  }
+  .dropdown {
+    position: relative;
+    right: 76px;
+    margin-right: 30px;
+  }
+  .city-card {
+    width: 35px;
   }
 }
 
@@ -71,7 +87,7 @@ body ::after {
   background-size: cover;
 }
 
-@media all and (max-width: 767px) and (min-width: 481px) {
+@media all and (max-width: 767px) {
   body {
     background-color: coral;
   }
@@ -81,6 +97,22 @@ body ::after {
     grid-gap: 15px 20px;
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
+  }
+  .time h1 {
+    font-size: 20px;
+    margin: 0;
+  }
+  .time h3 {
+    font-size: 20px;
+    margin: 0;
+  }
+  .dropdown {
+    position: relative;
+    right: 76px;
+    margin-right: 30px;
+  }
+  .city-card {
+    width: 35px;
   }
 }
 
@@ -124,7 +156,7 @@ body ::after {
 }
 
 .container {
-  padding: 20px 80px;
+  padding: 0px 10px;
   margin: 0px auto;
   height: 100vh;
   overflow: auto;
@@ -137,10 +169,11 @@ body ::after {
 
 .container .time {
   font-style: normal;
+  width: 100%;
 }
 
 .container .time h1 {
-  margin: 20px 0px;
+  font-size: 27px;
 }
 
 .container .time h3 {
@@ -231,8 +264,7 @@ body ::after {
 
 .container .dropdown {
   width: 65%;
-  height: 15em;
-  border: 3px solid white;
+  height: auto;
   background-color: #0e1f58;
   overflow: auto;
   display: -webkit-box;
