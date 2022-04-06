@@ -50,6 +50,27 @@
   }
 }
 
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  margin: 0%;
+  width: 100%;
+  font-family: "Lato", sans-serif;
+}
+
+body ::after {
+  background-image: url(./forest.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
 @media all and (max-width: 767px) and (min-width: 481px) {
   body {
     background-color: coral;
