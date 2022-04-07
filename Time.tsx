@@ -6,6 +6,7 @@ import { useState } from "react";
 const Time: React.FC = () => {
   const timeNow = new Date().toLocaleTimeString();
 
+  
   const [time, setTime] = useState<number | string>(timeNow);
 
   const getTime = () => {

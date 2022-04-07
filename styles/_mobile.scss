@@ -7,41 +7,31 @@ $darkbackground: rgb(14, 31, 88);
 
     .container .city-display {
       display: grid;
-      grid-gap: 15px 20px;
+      justify-content: center;
+      grid-gap: 0px 0px;
       grid-template-columns: repeat(1, 1fr);
+      padding: 5px 50px;
     }
   }
 
   .time {
-    // font-style: normal;
 
     h1 {
       font-size: 20px;
-      margin: 0;
+      margin: 0px;
+      padding: 0px;
     }
     h3 {
       font-size: 20px;
-      margin: 0;
+      margin: 0px;
+      padding: 0px;
     }
   }
 
   .dropdown{
-        position: relative;
-        right: 76px;
-      margin-right: 30px;
-
-      //  a{
-      //    p{
-      //       color: red;
-      //    }
-      //  }
-        
+      margin-right: 55px;
     }
 
-    .city-card {
-      width:35px;
-      // color: red;
-    }
 }
 
 @media all and (min-width: 768px) {
@@ -51,24 +41,16 @@ $darkbackground: rgb(14, 31, 88);
 
     .container .city-display {
       display: grid;
-      grid-gap: 15px 20px;
+      grid-gap: 5px 50px;
       grid-template-columns: repeat(2, 1fr);
+      padding: 5px 70px;
+      justify-content: center;
     }
   }
 
-  // .input input {
-  //       width: 65%;
-  //       font-size: 30px;
-  //       padding: 10px;
-  //       text-align: center;
-  //       text-transform: uppercase;
-  //       background-color: $darkbackground;
-  //       border: none;
-  //       border-bottom: 3px solid $ligtbackground;
-  //       color: $ligtbackground;
-  //       font-family: $pagefont;
-  //       box-shadow: $boxShadow;
-  //     }
+  .dropdown{
+    margin-right: 190px;
+}
 }
 
 @media all and (min-width: 1024px) {
@@ -82,8 +64,6 @@ $darkbackground: rgb(14, 31, 88);
       grid-template-columns: repeat(3, 1fr);
     }
   }
-
-  // background-color: rgb(31, 30, 30);
 }
 
 @media all and (min-width: 1200px) {
@@ -95,7 +75,10 @@ $darkbackground: rgb(14, 31, 88);
       grid-gap: 15px 20px;
       grid-template-columns: repeat(4, 1fr);
     }
-  }
 
-  // background-color: rgb(31, 30, 30);
+    .dropdown{
+      margin-right: 190px;
+    }
+    
+  }
 }

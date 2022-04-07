@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import { useState, useEffect, useRef } from "react";
 import Time from "./Time";
-import "./weatherapp.css";
+import "./styles/weatherapp.css";
 import CityCard from "./Citydisplay";
 import Input from "./Input";
 // import {countries} from "./countries"
@@ -34,7 +34,40 @@ const WeatherApp: React.FC = () => {
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}`;
 
-  const [api, setApi] = useState([]);
+  const [api, setApi] = useState([
+    {
+      "coord": { "lon": 7.4898, "lat": 9.0574 },
+      "weather": [
+        {
+          "id": 802,
+          "main": "Clouds",
+          "description": "scattered clouds",
+          "icon": "03d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 309.4,
+        "feels_like": 306.56,
+        "temp_min": 309.4,
+        "temp_max": 309.4,
+        "pressure": 1010,
+        "humidity": 9,
+        "sea_level": 1010,
+        "grnd_level": 958
+      },
+      "visibility": 10000,
+      "wind": { "speed": 1.27, "deg": 190, "gust": 1.55 },
+      "clouds": { "all": 30 },
+      "dt": 1645619420,
+      "sys": { "country": "NG", "sunrise": 1645595192, "sunset": 1645638040 },
+      "timezone": 3600,
+      "id": 2352778,
+      "name": "Abuja",
+      "cod": 200
+    }
+    
+  ]);
 
   const [error, setError] = useState(false);
 
@@ -172,7 +205,7 @@ const WeatherApp: React.FC = () => {
 
     
 
-        <h1 style={{textAlign:"center"}}>WEATHER FORECAST</h1>
+        <h1 style={{textAlign:"center", fontWeight:"1500"}}>WEATHER FORECAST</h1>
       {/* TIME COMPONENT HERE */}
       <div className="time">
         <Time />
