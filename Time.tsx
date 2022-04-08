@@ -20,8 +20,8 @@ const Time: React.FC = () => {
 
   return (
     <div>
-      <h1>{time}</h1>
-      <h3>{`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`}</h3>
+      <p>{time}</p>
+      <p>{`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`}</p>
     </div>
   );
 };

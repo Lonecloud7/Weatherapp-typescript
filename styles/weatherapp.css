@@ -178,7 +178,8 @@ body {
   position: relative;
   color: white;
   overflow-x: hidden;
-  background-color: #19369a;
+  background: url(./forest.jpg);
+  background-size: cover;
 }
 
 .container h1 {
@@ -196,12 +197,10 @@ body {
   text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
 }
 
-.container .time h1 {
-  font-size: 27px;
-}
-
-.container .time h3 {
-  margin: 20px 0px;
+.container .time p {
+  font-size: 23px;
+  margin: 3px 5px 10px 0px;
+  font-weight: 500px;
 }
 
 .container .empty-input {
@@ -225,7 +224,7 @@ body {
   padding: 10px;
   text-align: center;
   text-transform: uppercase;
-  background-color: #0e1f58;
+  background-color: #12276e;
   border: none;
   border-bottom: 3px solid #8ca1e7;
   color: #8ca1e7;
@@ -331,9 +330,7 @@ body {
 }
 
 .container .city-card {
-  background-color: rgba(65, 73, 150, 0.5);
-  background: url(./forest.jpg);
-  background-size: cover;
+  background-color: rgba(65, 73, 150, 0.6);
   width: auto;
   padding: 5px;
   margin: 10px 15px;

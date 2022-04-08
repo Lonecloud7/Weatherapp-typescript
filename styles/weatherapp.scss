@@ -14,7 +14,9 @@
   color: $font-color;
   overflow-x: hidden;
   // background-color:rgba(65, 73, 150, 0.5);
-  background-color: lighten($darkbackground, 15%);
+  // background-color: $darkbackground;
+  background: url(./forest.jpg);
+    background-size: cover;
   
 
   h1{
@@ -33,11 +35,10 @@
     text-shadow: $textShadow;
     
 
-    h1 {
-      font-size: 27px;
-    }
-    h3 {
-      margin: 20px 0px;
+    p {
+      font-size: 23px;
+      margin: 3px 5px 10px 0px;
+      font-weight:500px;
     }
   }
 
@@ -58,7 +59,7 @@
       padding: 10px;
       text-align: center;
       text-transform: uppercase;
-      background-color: $darkbackground;
+      background-color: lighten( $darkbackground, 5%);
       border: none;
       border-bottom: 3px solid $ligtbackground;
       color: $ligtbackground;
@@ -137,9 +138,9 @@
   }
 
   .city-card {
-    background-color:rgba(65, 73, 150, 0.5);
-    background: url(./forest.jpg);
-    background-size: cover;
+    background-color:rgba(65, 73, 150, 0.6);
+    // background: url(./forest.jpg);
+    // background-size: cover;
     width: auto;
     padding: 5px;
     margin: 10px 15px;
