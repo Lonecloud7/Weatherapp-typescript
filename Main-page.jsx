@@ -25,7 +25,7 @@ interface country {
   country: string;
 }
 
-const WeatherApp: React.FC = () => {
+const WeatherApp: React.FC<any> = () => {
   // HOOKS!!!!!
 
   const [location, setLocation] = useState("");
