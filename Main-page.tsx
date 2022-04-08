@@ -32,42 +32,9 @@ const WeatherApp: React.FC = () => {
 
   const key = "e6a38152efe7fa62f20a103eeb622259";
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=${key}`;
 
-  const [api, setApi] = useState([
-    {
-      "coord": { "lon": 7.4898, "lat": 9.0574 },
-      "weather": [
-        {
-          "id": 802,
-          "main": "Clouds",
-          "description": "scattered clouds",
-          "icon": "03d"
-        }
-      ],
-      "base": "stations",
-      "main": {
-        "temp": 309.4,
-        "feels_like": 306.56,
-        "temp_min": 309.4,
-        "temp_max": 309.4,
-        "pressure": 1010,
-        "humidity": 9,
-        "sea_level": 1010,
-        "grnd_level": 958
-      },
-      "visibility": 10000,
-      "wind": { "speed": 1.27, "deg": 190, "gust": 1.55 },
-      "clouds": { "all": 30 },
-      "dt": 1645619420,
-      "sys": { "country": "NG", "sunrise": 1645595192, "sunset": 1645638040 },
-      "timezone": 3600,
-      "id": 2352778,
-      "name": "Abuja",
-      "cod": 200
-    }
-    
-  ]);
+  const [api, setApi] = useState([]);
 
   const [error, setError] = useState(false);
 
