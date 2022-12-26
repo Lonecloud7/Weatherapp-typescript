@@ -53,7 +53,6 @@ const WeatherApp: React.FC<any> = () => {
   //Dropdown REF
   const ref = useRef(null);
 
-
   // const [value, setValue] = useState(null);
 
   const getValue: any = (e: { children?: ReactNode } | any) => {
@@ -91,7 +90,7 @@ const WeatherApp: React.FC<any> = () => {
 
       // const { cod, name }: { cod: string | number; name: string } = weatherApi;
 
-      (!weather || weather.cod !== "404")
+      !weather || weather.cod !== "404"
         ? setApi((prev) => {
             return [...prev, weather];
           })
@@ -105,7 +104,6 @@ const WeatherApp: React.FC<any> = () => {
     // INPUT CONDITION
 
     location === "" && setError(true);
-    
 
     //REMOVE INPUT PROMPT
     setTimeout(() => {
@@ -168,16 +166,14 @@ const WeatherApp: React.FC<any> = () => {
 
   // HTML BEGINS HERE!!
   return (
-    <div className="container" >
-
-    
-
-        <p style={{textAlign:"center", fontWeight:"800", fontSize:"40px"}}>WEATHER FORECAST</p>
+    <div className="container">
+      <p style={{ textAlign: "center", fontWeight: "800", fontSize: "40px" }}>
+        WEATHER FORECAST
+      </p>
       {/* TIME COMPONENT HERE */}
       <div className="time">
         <Time />
       </div>
-      
 
       {/* INPUT HERE */}
 
